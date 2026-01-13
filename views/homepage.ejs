@@ -18,10 +18,23 @@
     <% if (locals.user) { %>
         <h2>Hey <%= locals.user.name %>!</h2>
         <h3>Welcome to your Task Manager</h3>
+
+        <!-- PENDING -->
         <button type="button" class="btn btn-secondary">
             <a href="/profile">Visit profile</a>
         </button>
+        
+        <!-- PENDING -->
+        <button type="button" class="btn btn-secondary">
+            <a href="/createTask">Create Task</a>
+        </button>
+        
+        <!-- PENDING -->
+        <button type="button" class="btn btn-secondary">
+            <a href="/dashboard">Dashboard</a>
+        </button>
 
+        <!-- COMPLETED -->
         <button type="button" class="btn btn-secondary">
             <a href="/user/logout">Logout</a>
         </button>
