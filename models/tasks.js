@@ -20,6 +20,7 @@ const taskSchema = new Schema({
         required : true,
     },
 
+    // we'll need to handle it explicitly.
     createdBy : {
         type : Schema.Types.ObjectId,
         ref : 'users',

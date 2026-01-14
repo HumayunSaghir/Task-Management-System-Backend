@@ -14,24 +14,30 @@
     </style>
 </head>
 <body>
+    <% if (locals.message) { %>
+        <div class="alert alert-success" role="alert">
+            <%= locals.message %>
+        </div>
+    <% } %>
+
     <!-- case when user will be logged in -->
     <% if (locals.user) { %>
         <h2>Hey <%= locals.user.name %>!</h2>
         <h3>Welcome to your Task Manager</h3>
 
-        <!-- PENDING -->
+        <!-- Completed -->
         <button type="button" class="btn btn-secondary">
             <a href="/profile">Visit profile</a>
         </button>
         
-        <!-- PENDING -->
+        <!-- Completed -->
         <button type="button" class="btn btn-secondary">
             <a href="/createTask">Create Task</a>
         </button>
         
-        <!-- PENDING -->
+        <!-- Completed -->
         <button type="button" class="btn btn-secondary">
-            <a href="/createTask">All Tasks</a>
+            <a href="/allTasks">All Tasks</a>
         </button>
         
         <!-- PENDING -->
