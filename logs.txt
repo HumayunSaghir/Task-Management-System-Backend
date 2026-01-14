@@ -19,3 +19,17 @@ new request at /dashboard by method GET
 new request at /profile by method GET
 new request at /dashboard by method GET
 new request at /createTask by method GET
+new request at /user/login by method GET
+new request at /favicon.ico by method GET
+new request at /user/validateLogin by method POST
+new request at /home by method GET
+new request at /profile by method GET
+new request at /user/logout by method GET
+new request at /home by method GET
+new request at /user/login by method GET
+new request at /user/validateLogin by method POST
+new request at /home by method GET
+new request at /home by method GET
+new request at /profile by method GET
+new request at /profile by method GET
+new request at /profile by method GET
