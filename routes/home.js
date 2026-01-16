@@ -6,7 +6,7 @@ const {handleShowHomepage, handleShowProfile, handleShowCreateTaskPage,
 
 const router = Router()
 
-router.get('/home', handleShowHomepage)
+router.get('/', handleShowHomepage)
 router.get('/profile', handleShowProfile)
 router.get('/createTask', handleShowCreateTaskPage)
 router.get('/dashboard', handleShowDashboardPage)

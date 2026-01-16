@@ -20,7 +20,7 @@ async function handleSignupValidation(req, res){
     const token = createToken(createdUser)
     res.cookie('token', token)
 
-    return res.status(201).redirect('/home')
+    return res.status(201).redirect('/')
 }
 
 // showing login page
@@ -39,7 +39,7 @@ async function handleValidateLogin(req, res){
         // sending token to client
         res.cookie('token', token)
 
-        return res.status(200).redirect('/home')
+        return res.status(200).redirect('/')
     }
     catch(err){
         return res.status(401).render('login', {
@@ -50,7 +50,7 @@ async function handleValidateLogin(req, res){
 
 // logout
 function handleLogoutFunctionality(req, res){
-    return res.status(200).clearCookie('token').redirect('/home')
+    return res.status(200).clearCookie('token').redirect('/')
 }
 
 module.exports = {
