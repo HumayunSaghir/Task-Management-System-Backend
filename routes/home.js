@@ -2,7 +2,8 @@ const {Router} = require('express')
 const {handleShowHomepage, handleShowProfile, handleShowCreateTaskPage,
         handleShowDashboardPage, handleCreateTask, handleGetAllTasks,
         handleShowSearchById, handleValidateSearchById, handleShowEditTaskPage,
-        handleValidateEditTask, handleTaskDeletion} = require('../controllers/home')
+        handleValidateEditTask, handleTaskDeletion, handleShowCompletedTask,
+        handleShowPendingTask} = require('../controllers/home')
 
 const router = Router()
 
@@ -17,5 +18,7 @@ router.post('/validateSearchById', handleValidateSearchById)
 router.get('/editTask/:_id', handleShowEditTaskPage)
 router.post('/validateEditTask/:_id', handleValidateEditTask)
 router.get('/deleteTask/:_id', handleTaskDeletion)
+router.get('/completedTask', handleShowCompletedTask)
+router.get('/pendingTask', handleShowPendingTask)
 
 module.exports = router

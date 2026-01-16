@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Tasks</title>
+    <%- include('./partials/css') %>
+    <style>
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- when tasks are there -->
+    <% if (locals.data !== undefined) { %>
+        <% locals.data.forEach(task => { %>
+
+            <!-- we'll get only completed tasks -->
+            <% if (task.status !== 'Completed') { %>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            <%= task.title %>
+                        </h5>
+                        <p class="card-text">
+                            <%= task.description %>
+                        </p>
+                        <p>Status: <%= task.status %></p>
+                        <p>Priority: <%= task.priority %></p>
+                        <p>Id: <%= task._id %></p>
+
+                        <!-- button for editing task -->
+                        <button type="button" class="btn btn-secondary">
+                            <a href="/editTask/<%= task._id %>">Edit</a>
+                        </button>
+
+                        <!-- button for deleting task -->
+                        <button type="button" class="btn btn-secondary">
+                            <a href="/deleteTask/<%= task._id %>">Delete</a>
+                        </button>
+
+                        <button type="button" class="btn btn-secondary">
+                            <a href="/">Home</a>
+                        </button>
+
+                    </div>
+                    <br><br>
+                </div>
+            <% } %>
+
+        <% }) %>
+    <% } %>
+
+    <!-- when tasks are not there -->
+    <% if (locals.data.length === 0) { %>
+        <h3>No Tasks to Show. Add Some!</h3>
+    <% } %>
+
+    <%- include('./partials/script') %>
+    <script src="https://kit.fontawesome.com/f0606bcd7a.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

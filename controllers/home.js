@@ -121,6 +121,7 @@ async function handleValidateEditTask(req, res){
 
 }
 
+// task deletion
 async function handleTaskDeletion(req, res){
     // getting the id
     const reqId = req.params._id
@@ -129,6 +130,29 @@ async function handleTaskDeletion(req, res){
 
     return res.status(200).redirect('/allTasks')
 
+}
+
+// showing completed tasks
+async function handleShowCompletedTask(req, res){
+    const reqId = req.user._id
+
+    // fetching all tasks
+    const allTasks = await taskModel.find({createdBy : reqId})
+    return res.status(200).render('completedTask', {
+        data : allTasks,
+    })
+
+}
+
+// show pending task
+async function handleShowPendingTask(req, res){
+    const reqId = req.user._id
+
+    // fetching all tasks
+    const allTasks = await taskModel.find({createdBy : reqId})
+    return res.status(200).render('pendingTask', {
+        data : allTasks,
+    })
 }
 
 module.exports = {
@@ -143,4 +167,6 @@ module.exports = {
     handleShowEditTaskPage,
     handleValidateEditTask,
     handleTaskDeletion,
+    handleShowCompletedTask,
+    handleShowPendingTask,
 }
