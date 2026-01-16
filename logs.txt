@@ -216,3 +216,12 @@ new request at /allTasks by method GET
 new request at /editTask/6967e881820f139ec183b2be by method GET
 new request at /validateEditTask/6967e881820f139ec183b2be by method POST
 new request at /allTasks by method GET
+new request at /home by method GET
+new request at /allTasks by method GET
+new request at /deleteTask/6967e881820f139ec183b2be by method GET
+new request at /allTasks by method GET
+new request at /deleteTask/6967e9588d6856ac3112decc by method GET
+new request at /allTasks by method GET
+new request at /editTask/6967eaafe08fdeafacd42150 by method GET
+new request at /validateEditTask/6967eaafe08fdeafacd42150 by method POST
+new request at /allTasks by method GET

@@ -121,7 +121,15 @@ async function handleValidateEditTask(req, res){
 
 }
 
+async function handleTaskDeletion(req, res){
+    // getting the id
+    const reqId = req.params._id
 
+    await taskModel.findByIdAndDelete({_id : reqId})
+
+    return res.status(200).redirect('/allTasks')
+
+}
 
 module.exports = {
     handleShowHomepage,
