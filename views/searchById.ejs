@@ -1,48 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     <%- include('./partials/css') %>
+    <style>
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
     <!-- when no task will be found -->
     <% if (locals.message) { %>
         <div class="alert alert-danger" role="alert">
             <%= locals.message %>
         </div>
-    <% } %>
+        <% } %>
 
-    <!-- when task will be found -->
-    <% if (locals.data) { %>
-        <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><%= data.title %></h5>
-                    <p class="card-text"><%= data.description %></p>
-                    <p>Status: <%= data.status %></p>
-                    <p>Priority: <%= data.priority %></p>
-                    <p>Id : <%= data._id %></p>
+            <!-- when task will be found -->
+            <% if (locals.data) { %>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= data.title %>
+                        </h5>
+                        <p class="card-text">
+                            <%= data.description %>
+                        </p>
+                        <p>Status: <%= data.status %>
+                        </p>
+                        <p>Priority: <%= data.priority %>
+                        </p>
+                        <p>Id : <%= data._id %>
+                        </p>
+                    </div>
+                    <br>
+                    <br>
                 </div>
-                <br>
-                <br>
-            </div>
 
-    <% } %>
+                <% } %>
 
-    <h1>Search By Id</h1>
-    
-    <form method="post" action="/validateSearchById">
-        <!-- id -->
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Enter ID</label>
-            <input placeholder="14354378264832" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="reqId">
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
+                    <h1>Search By Id</h1>
+
+                    <form method="post" action="/validateSearchById">
+                        <!-- id -->
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Enter ID</label>
+                            <input placeholder="14354378264832" type="text" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" name="reqId">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        
+                        <!-- button for home navigation -->
+                        <button type="button" class="btn btn-secondary">
+                            <a href="/home">Home</a>
+                        </button>
+                    
+                    </form>
 
 
-    <%- include('./partials/script') %>
+        <%- include('./partials/script') %>
 </body>
+
 </html>
