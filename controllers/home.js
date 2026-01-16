@@ -50,6 +50,7 @@ async function handleCreateTask(req, res){
 async function handleGetAllTasks(req, res){
     const userId = req.user._id
     const allTasks = await taskModel.find({createdBy : userId})
+    
     return res.status(200).render('allTasks', {
         data : allTasks,
     })
@@ -87,6 +88,41 @@ async function handleValidateSearchById(req, res){
     }
 }
 
+// show edit task page
+function handleShowEditTaskPage(req, res){
+
+    // we are getting id here.
+
+    return res.status(200).render('editTask', {
+        user : req.user,
+        _id : req.params._id,
+    })
+}
+
+// handle task editing
+async function handleValidateEditTask(req, res){
+    // we are getting the id here.
+    const _id = req.params._id
+    const {title, description, status, priority} = req.body
+    
+    // fetching the document
+    const reqTask = await taskModel.findOne({_id : _id})
+    
+    // editing the properties
+    reqTask.title = title
+    reqTask.description = description
+    reqTask.status = status
+    reqTask.priority = priority
+
+    // saving the document
+    await reqTask.save()
+
+    return res.status(200).redirect('/allTasks')
+
+}
+
+
+
 module.exports = {
     handleShowHomepage,
     handleShowProfile,
@@ -95,5 +131,8 @@ module.exports = {
     handleCreateTask,
     handleGetAllTasks,
     handleShowSearchById,
-    handleValidateSearchById
+    handleValidateSearchById,
+    handleShowEditTaskPage,
+    handleValidateEditTask,
+    handleTaskDeletion,
 }

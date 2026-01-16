@@ -16,16 +16,13 @@ connectDatabase('mongodb://127.0.0.1:27017/TaskManager')
     .then(() => console.log('database connected!'))
     .catch(() => console.log('error in database connection!'))
 
-// utility middlewares
 app.use(express.urlencoded({extended : false}))
 app.use(createLogs('./logs.txt'))
 app.use(cookieParser())
 
-// setting up templating engine
 app.set('view engine', 'ejs')
 app.set('views', path.resolve('./views'))
 
-// setting up routes
 app.use('/user/', userRouter)
 app.use('/', softAuth, homeRouter)
 

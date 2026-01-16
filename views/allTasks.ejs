@@ -26,6 +26,17 @@
                     <p>Status: <%= task.status %></p>
                     <p>Priority: <%= task.priority %></p>
                     <p>Id : <%= task._id %></p>
+                    
+                    <!-- button for editing task -->
+                    <button type="button" class="btn btn-secondary">
+                        <a href="/editTask/<%= task._id %>">Edit</a>
+                    </button>
+
+                    <!-- button for deleting task -->
+                     <button type="button" class="btn btn-secondary">
+                        <a href="/deleteTask/<%= task._id %>">Delete</a>
+                    </button>
+
                 </div>
                 <br>
                 <br>
