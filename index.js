@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const {connectDatabase} = require('./connection')
 const path = require('path')
@@ -9,12 +11,12 @@ const homeRouter = require('./routes/home')
 
 // setting up app
 const app = express()
-const port = 8000
+const port = process.env.PORT || 8000
 
 // database connection
-connectDatabase('mongodb://127.0.0.1:27017/TaskManager')
-    .then(() => console.log('database connected!'))
-    .catch(() => console.log('error in database connection!'))
+connectDatabase(process.env.MONGO_URL)
+.then(() => console.log('database connected.'))
+.catch((err) => console.log('error in database connection.'))
 
 app.use(express.urlencoded({extended : false}))
 app.use(createLogs('./logs.txt'))
