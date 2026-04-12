@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  app:
+    image: humayunsaghir/task-app
+    container_name: task-app-container
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/taskdb
+      - PORT=8000
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

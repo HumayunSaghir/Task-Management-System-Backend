@@ -29,4 +29,6 @@ app.use('/user/', userRouter)
 app.use('/', softAuth, homeRouter)
 
 // server listening
-app.listen(port, () => console.log(`server is listening at port ${port}`))
+app.listen(port, '0.0.0.0', () => {
+    console.log(`server is listening at port ${port}`);
+});
